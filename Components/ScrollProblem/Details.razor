@@ -1,0 +1,55 @@
+﻿@page "/scroll/details/{Name}"
+<h3>Details</h3>
+
+@code {
+    [Parameter] public string Name { get; set; }
+}
+
+<style>
+    .game-details {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .game-details h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .game-details h2 {
+        font-size: 2.5rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .game-details p {
+        font-size: 2rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .game-details strong {
+        font-weight: bold;
+    }
+</style>
+
+<h1 style="text-align:center; margin: 20px 0; background:#bbb; padding:20px;">
+    <a href="scroll/">Go back to listing</a>
+</h1>
+
+
+<div class="game-details">
+    <h1>@Name</h1>
+    <p><strong>Release Date:</strong> March 3, 2017</p>
+    <p><strong>Characteristics:</strong> Open-world, Action-adventure, Exploration</p>
+    <h2>Description</h2>
+    <p>The Legend of Zelda: Breath of the Wild is a groundbreaking game that set new standards for open-world adventure games. Set in a vast and beautiful open world, players take on the role of Link, who awakens from a long slumber to a Hyrule ravaged by the Calamity Ganon. With no memory of his past, Link must explore the wilderness to recover his lost memories and save the kingdom of Hyrule.</p>
+    <p>This game is celebrated for its open-ended gameplay and attention to detail. The world of Hyrule is teeming with wildlife, hidden secrets, and a variety of landscapes to explore, from snowy mountains to lush forests and arid deserts. Players can approach objectives in multiple ways, encouraging experimentation and discovery. The physics engine adds a layer of depth to puzzle-solving and combat, allowing for creative solutions and interactions with the environment.</p>
+    <p>Breath of the Wild also introduces survival elements to the series, including weapon durability, cooking, and weather effects, which require players to plan and adapt to their surroundings. The game's minimalist narrative allows the exploration and discoveries to drive the player's understanding of the story and the world's history.</p>
+    <p>The Legend of Zelda: Breath of the Wild is not just a game; it's an experience that stays with you. It's a testament to the freedom and adventure that video games can offer, providing a deeply immersive and personal journey that has influenced countless games since its release. It's a masterpiece that has left an indelible mark on the gaming landscape, offering endless adventures in the magical world of Hyrule.</p>
+</div>
+
+<h1 style="text-align:center; margin: 20px 0; background:#bbb; padding:20px;">
+    <a href="scroll">Go back to listing</a>
+</h1>

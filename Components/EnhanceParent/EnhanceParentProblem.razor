@@ -1,0 +1,106 @@
+﻿@page "/enhance/"
+@page "/enhance/{State:bool}"
+<h3>Enhance Parent Problem</h3>
+
+<p>
+This shows the problem with no option to have donut enhance navigation.
+</p>
+
+
+@code {
+    [Parameter] public bool State { get; set; }
+
+    private string Msg = "Subscribe to our newsletter";
+
+    protected override void OnInitialized()
+    {
+        if (State)
+        {
+            Msg = "Thanks for subscribing";
+        }
+    }
+    void Submit()
+    {
+        Console.WriteLine("Submit");
+    }
+
+}
+
+<style>
+    fieldset{
+        margin-bottom:10px;
+    }
+    .blue {
+        color: blue;
+    }
+
+    .red {
+        color: red;
+    }
+</style>
+
+<div id="enhance">
+    <div>
+        <h1>site wide theme option</h1>
+        <p>Te see the problem, first imagine you have some global site setting that works with javascript, since this is not interactive but uses enhance nav</p>
+        <p>first select a theme color. That will change the color of all the content on the page.</p>
+    </div>
+    <fieldset data-permanent="true">
+        <label id="redbutton">
+            Red
+            <input type="radio" value="1" name="radiogroup" />
+        </label>
+        <label id="bluebutton">
+            Blue
+            <input type="radio" value="2" name="radiogroup" />
+        </label>
+    </fieldset>
+
+
+
+    <div class="content">
+        <p>Now imagine you have somewhere a form that lets you register to the website. Using enhance nav, you want to display a "thank you" message without reloading the whole page</p>
+        <p>This can also be a totally different component, even from an UI library</p>
+        <p>You totally don't want to alter the color selected on the site-wide-theme option.</p>
+        @if (State)
+        {
+            <h2 style="margin:40px;">
+                @Msg
+            </h2>
+            <p>As you can see, after pressing the submit button, the fetch was made and the " thanks for subscribing " is shown correctly but the color selection was lost.</p>
+            <p>We can use data-permanent to keep the selection but we would need to recreate all the javascript state (including user interaction) so the page before the submit and after are in sync.</p>
+            <p>which is even worse because now you have an input (blue or red) selected but the color is default (black)</p>
+
+            <p>
+                Why is this important? Because you want to use blazor without webassembly interactivity or you want to use a component from a UI library that is not blazor or to reuse some other javascript.
+
+            </p>
+            <p>
+                also, child components should not need to be aware of the parent's state to operate properlly.
+            </p>
+            <a href="/enhance">submit form again</a>
+        }
+        else
+        {
+
+            <form action="enhance/true" data-enhance="true">
+
+
+                <fieldset>
+                    <label>
+                        Name
+                        <input />
+                    </label>
+
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        }
+    </div>
+
+</div>
+
+
+
